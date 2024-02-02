@@ -34,8 +34,8 @@ pipeline {
             steps {
                 // Run snyk test, output results as json and then run snyk-filter using that json and the location of the filter.
                 snykSecurity( 
-                    snykInstallation: 'snykInstallationName', 
-                    snykTokenId: 'snykTokenId', 
+                    snykInstallation: 'snyk@latest', 
+                    snykTokenId: 'SNYK', 
                     monitorProjectOnBuild: false, // snyk-filter is not supported with monitor, so this should be set to false.
                     failOnIssues: 'false', // if the build fails in the snykSecurity step, snyk-filter will not run, which is why failOnIssues is set to false.
                     additionalArguments: '--json-file-output=all-vulnerabilities.json'
